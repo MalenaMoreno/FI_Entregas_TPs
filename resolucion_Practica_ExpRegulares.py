@@ -36,8 +36,6 @@ print(caracteres_permitidos("ABCDEFabcdef123450!"))
 
 """
 
-
-
 #Ejercicio 3
 
 """
@@ -121,3 +119,12 @@ print(numero_especifico(5, "a5sdgf"))
 print(numero_especifico(65, "5sdgf"))
 
 #Ejercicio 6
+
+#### prueba
+
+
+
+
+
+
+
