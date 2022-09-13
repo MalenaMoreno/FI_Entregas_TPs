@@ -1,4 +1,11 @@
 #De Intro_a_Python --> https://github.com/AJVelezRueda/Fundamentos_de_informatica/blob/master/Python_intro/intro_python_tutorial.md
+
+# DESAFÍO 1: ¿Qué pasos nos faltaron? ¿Podes pensar otras posibles situaciones que no estemos contemplando
+# (como por ejemplo que no haya yerba en el yerbero)?
+# Agregá a la guía para preparar mate(script) los pasos, problemas posibles y
+# las soluciones que se te ocurran en sentencias u ordenes sencillas
+# (ejemplo; verificar si hay yerba en el yerbero. Si no hay agregar, si hay llenar el mate)
+
 """
 
 Paso 1) Seleccionar el mate
@@ -23,12 +30,6 @@ maceta = maceta con cactus del balcón
 
 """
 
-# DESAFÍO 1: ¿Qué pasos nos faltaron? ¿Podes pensar otras posibles situaciones que no estemos contemplando
-# (como por ejemplo que no haya yerba en el yerbero)?
-# Agregá a la guía para preparar mate(script) los pasos, problemas posibles y
-# las soluciones que se te ocurran en sentencias u ordenes sencillas
-# (ejemplo; verificar si hay yerba en el yerbero. Si no hay agregar, si hay llenar el mate)
-
 # DESAFÍO II: Abrí la terminal de Python que tengas instalada en tu computadora
 # y luego abrí Visual Code y luego presioná las teclas Ctrl + J.
 # Se abrirá una terminal en el editor de código.
@@ -36,6 +37,7 @@ maceta = maceta con cactus del balcón
 # ¿Qué lenguaje "entiende" la terminal de Visual Code?
 
 #Calculadora...
+
 """
 print(3*5) #multiplica
 print(8/4) #divide
@@ -102,12 +104,16 @@ lista.index("string") # --> posicion de tal string en la lista
 # Cosntruí una función que nos permita calcular cuántos termos de 1000 ml llenos 
 # consumiremos para un ronda dada (es decir una cantidad de personas dada).
 
+def termos_por_ronda(personas): 
+    return (personas * 30) / 1000
 
 # Desafío VII: Siempre con los mates, vienen bien unas facturitas 🥐🥐
 # ¿Si hacemos una vaquita ? Vaquita se le dice en Argentina a hacer una colecta de plata
 # para un fin común. Creá función que nos permita dividir los costos de una docena de
 # facturas entre cierta cantidad de comensales.
 
+def vaquita(costos, comensales):
+    return costos / comensales
 
 ## Desafío VIII: En una ronda pequña de mate 🧉 no hace falta llenar tooooodo el termo, con un poco de agua quizás alcanza.
 # Definí una función calcular_cantidad_de_agua que espere una cantidad de personas como argumento
@@ -115,6 +121,11 @@ lista.index("string") # --> posicion de tal string en la lista
 
 # 👀 ¡OJO! Si llega a 1000 debería retornar la advertencia "vas a necesitar más de un térmo"
 
+def calcular_agua(personas): 
+    if termo >= (personas * 30): 
+        return personas * 30
+    else:
+        return "se necesita mas de un termo"
 
 
 pedido = { "Ana" : "no veggie", "Paul": "veganas", "Luz": "vegetarianas"}
@@ -140,6 +151,14 @@ def empanadas_por_gusto():
 ## Desafío IX: Modificá la función empanadas_por_gusto() para que devuelva la cantidad de empenadas
 # de cada gusto que deben pedirse a la casa de comidas
 
+gustos = {"no_veggie": 0, "veggie": 0} 
+pedido = { "Ana" : "no veggie", "Paul": "veganas", "Luz": "vegetarianas"}
+lista_comensales = ["Ana", "Paul", "Luz"]
+def empanadas_por_gusto(): 
+    for comensal in lista_comensales: 
+        gustos[pedido[comensal]] += 1
+
+print(gustos)
 """
 """
 

@@ -78,8 +78,7 @@ g = 0.04
 g_por_mes = g/12
 
 
-
-## PARTE 2 
+# PARTE 2 
 
 # ejercicio 1
 
@@ -162,7 +161,7 @@ else:
     print("el numero ingresado es incorrecto")
 
 
-## LISTAS
+# LISTAS
 
 # ejercicio 6
 
@@ -177,9 +176,13 @@ print(lista2)
 
 # ejercicio 7
 
+numero = int(input("ingrese numero: "))
 lista = [ ]
 
+while numero >= 0 
+    lista.append(numero)
 
+print(lista)
 
 # ejercicio 8
 
@@ -194,23 +197,72 @@ for indice in range(5):
     print(l2[indice])
     print(l1[indice])
 
-
 # ejercicio 9
 
+l_nombre = []
+l_edad = []
+
+nombre = input("ingrese nombre: ")
+edad = input("ingrese edad: ")
+
+while nombre != "*":
+    l_nombre.append(nombre)
+    l_edad.append(edad)
+    nombre = input("ingrese nombre: ")       #sigue agregando alumnos 
+    if nombre == "*":
+    print("la edad máxima de los alumnos es: " + max(l_edad))
 
 
-## DICCIONARIOS 
+# DICCIONARIOS 
 
 # ejercicio 10
 
+dic = {} 
+cadena = input("inserte adena de caracteres: ") 
+for caracter in cadena: 
+  dic[caracter] += 1
+else: 
+  dic[caracter] = 1
+
+for clave, valor in dic.items(): 
+  print(clave, valor)
+
 # ejercicio 11
 
+dic = {} 
+alfabeto = "abcdefghijklmnopqrstuvwxyz"
+
+for letra in alfabeto + alfabeto.upper(): 
+  dic[letra] = 0
+
+cadena = input("Ingrese cadena de caracteres: ")
+
+for caracter in cadena: 
+  if caracter.lower() in alfabeto: 
+    dic[caracter] += 1
+for campo, valor in dic.items(): 
+  print (campo, valor)
 
 
 # ejercicio 12
 
+cantidad = int(input("ingrese cantidad de alumnos: "))
+alumnos = {} 
 
-## FUNCIONES
+for numero in range(cantidad): 
+  alumno = input("ingrese nombre del alumno: ")
+  notas = [] 
+  nota = int(input("nota: "))
+  while nota >= 0:
+    notas.append(nota)
+    nota = int(input("nota: "))
+  alumnos[alumno] = notas 
+
+for alumno in alumnos: 
+  print(alumno, sum(alumnos[alumno]) / len(alumnos[alumno])) 
+
+
+# FUNCIONES
 
 # ejercicio 13
 
@@ -233,7 +285,6 @@ def temperatura_media(t_max, t_min):
 
 dias = int(input("cuantos dias?: "))
 
-
 for dia in range(dias):
 
     tmax_dia = int(input("ingrese temperatura maxima: "))
@@ -242,6 +293,7 @@ for dia in range(dias):
     temperatura_media(tmax_dia, tmin_dia)
 
 # ejercicio 15
+#falta terminar
 
 socios = [{ "numero": 1 , "nombre y apellido": "Florencia Ocampo", "fecha_ingreso": "14/09/2001", "cuota": "Si"},
 { "numero": 2 , "nombre y apellido": "David Estévez", "fecha_ingreso": "14/09/2001", "cuota": "Si"},
@@ -253,7 +305,6 @@ def cantidad_de_socios(lista):
     for dic in lista:
         cantidad = cantidad + 1 
     print(cantidad)
-
 
 n = input("numero de socio: ")
 
