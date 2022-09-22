@@ -2,6 +2,8 @@ import re
 
 #Ejercicio 1
 
+# Escribí un programa que verifique si un string tiene AL MENOS un carácter permitido.
+# Estos caracteres son a-z, A-Z y 0-9.
 
 def caracteres_permitidos(string):
     return bool(re.search('[a-zA-Z0-9.]', string))    # . --> al menos un caracter permitido
@@ -13,44 +15,56 @@ def caracteres_permitidos(string):
 # return bol (charRe.search(string))
 
 print("El string", "ABCDEFabcdef123450", "tiene caracteres permitidos?")
-print(caracteres_permitidos("ABCDEFabcdef123450"))
+print(caracteres_permitidos("ABCDEFabcdef123450"))                      #True
 
 print("El string", "*&%@#!}{", "tiene caracteres permitidos?")
-print(caracteres_permitidos("*&%@#!}{"))
+print(caracteres_permitidos("*&%@#!}{"))                                #False
+
+print("El string", "*&%@#!}{123a", "tiene caracteres permitidos?")
+print(caracteres_permitidos("*&%@#!}{123a"))                            #True
 
 
 #Ejercicio 2.
-
+# Escribí un programa que verifique si un string tiene todos sus caracteres, permitidos
 
 def caracteres_permitidos(string):
-    return not bool(re.search('[a-zA-Z0-9]', string))       #todos los caracteres permitidos 
+    return not bool(re.search('[^a-zA-Z0-9]', string))      #con el ^ --> el string NO tiene algo de [esto] 
 
-print("El string", "ABCDEFabcdef123450", "tiene todos los caracteres permitidos?")
-print(caracteres_permitidos("ABCDEFabcdef123450"))
+
+print("El string", "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghuvwxyz0123456789", "tiene todos los caracteres permitidos?")
+print(caracteres_permitidos("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghuvwxyz0123456789"))
 
 print("El string", "ABCDEFabcdef123450!", "tiene todos los caracteres permitidos?")
 print(caracteres_permitidos("ABCDEFabcdef123450!"))      
 
+#not bool --> invierto el valor del booleano
+#con el piquito ^ me dice que busque alguno que no este permitido 
+#doble negacion
 
 
 #Ejercicio 3
 
+# Creá un programa que verifique las siguientes condiciones:
+
+# si un string dado tiene una h seguida de NINGUNA O MAS e
 
 def encontrar_patron(string):
     patron = "he*"
-    if re.search(patron,string) is not None:
+    if re.search(patron, string) is not None:
         return "Se encontró el patrón"
     else:
         return "No se encontró el patrón"
 
-print(encontrar_patron("a"))
-
-        #not bool --> invierto el valor del booleano
-        #con el piquito ^ me dice que busque alguno que no este permitido 
-        #doble negacion
+print(encontrar_patron("a"))    #False
+print(encontrar_patron("h"))   #Todas True
+print(encontrar_patron("he"))
+print(encontrar_patron("hee"))
+print(encontrar_patron("heeeee"))
+print(encontrar_patron("hheeee"))
 
 
 #Ejercicio 3 .2
+# si un string dado tiene una h seguida de UNA O MAS e.
 
 def encontrar_patron(string):
     patron = "he+"
@@ -59,12 +73,11 @@ def encontrar_patron(string):
     else:
         return "No se encontró el patrón"
 
-print(encontrar_patron("a"))
+print(encontrar_patron("a"))    #False
+print(encontrar_patron("h"))
+print(encontrar_patron("he"))   #True
+print(encontrar_patron("hee"))
 
-# he*  --> una h o una e que puede estar 0 o mas veces 
-# [he*] --> una palabra una o mas veces 
-
-#he+ --> una o mas
 
 #Ejercicio 3 .3
 
@@ -79,9 +92,7 @@ print(encontrar_patron("he"))
 print(encontrar_patron("hheeeeey"))
 
 
-
 #para ver Q, se utilizan rangos pero en vez de -, utilzo , 
-
 
 #Ejercicio  4
 
@@ -110,7 +121,6 @@ print(numero_especifico(5, "a5sdgf"))
 print(numero_especifico(65, "5sdgf"))
 
 #Ejercicio 6
-
 
 lista = ["hola", "tal", "como"]
 frase = "hola que tal, como es tu nombre?"
@@ -151,7 +161,6 @@ def entre_guiones(string):
     return re.findall("-(.*?)-", string)
 
 print(entre_guiones("Hoy estuvimos trabajando con re -regular expression- en python -con VSCode-"))
-
 
 
 #Ejercicio 10
@@ -205,9 +214,7 @@ print(hola("ho?????????hola222222     				"))
 
 #Ejercicio 15
 
-def validar(mail):
-    patron = " "
-    return bool(patron, mail)
+def validar_mail(mail):
+    return(bool(re.match(r"[a-zA-Z0-9]+[-_\.]*[a-zA-Z0-9]+@[a-z]{1,9}\.[a-z]{2,4}(\.[a-z]{2,4})*", mail)))
 
-print
-
+print(validar_mail("maleemoreno1@gmail.com"))
