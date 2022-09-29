@@ -107,6 +107,16 @@ docs('bio.txt', 'manipulacion_archivos.txt', 'prueba_2.txt')
 # Realizá un programa que lea un archivo y obtenga la frecuencia de cada palabra que hay en el archivo.
 # Recordá que la frecuencia es la relación entre número de veces que aparece la palabra en cuestión con respecto a la cantidad total de palabras.
 
+def frecuencia(archivo):
+    with open(archivo, 'r') as file:
+        palabras = file.read()
+        lista = palabras.split()
+        dic = {}
+        for palabra in lista:
+            dic[palabra] = int(lista.count(palabra)) / int(len(lista))
+        print(dic)
+
+frecuencia("../bio.txt")
 
 #Ejercicio 10
 
@@ -119,12 +129,16 @@ def unir_txt(carpeta1, nombre):
     #carpeta1 es la ruta a esa carpeta
     os.chdir(carpeta1)                                  #me tengo que mover a esa carpeta
     textos = glob.glob("*.txt")
-    os.mkdir("Resultado")                               #Creo la carpeta
-    with open("Resultado/"+ nombre, "a") as salida:
+    os.mkdir("Resuelto")                               #Creo una carpeta nueva
+    
+    with open("Resuelto/"+ nombre, "a") as salida:     #Guardar en esa carpeta toda la inof de los txt
         for archivo in textos:                          #por cada archivo txt 
             with open(archivo, "r") as texto:           #abrilo
                 salida.write(texto.read()+ "\n")        
 
-unir_txt("Carpeta1", "salida.txt") 
+unir_txt("Carpeta1", "salida.txt")          # aca ya se donde estoy parado (ruta relativa)
 
+#con ruta absoluta: hay que indicar carpeta1 con la RUTA
 
+# crear archivo para una carpeta en la q no estoy parado; por eso Resultado/nombre 
+# lo estoy abriendo en modo append entonces me lo crea """

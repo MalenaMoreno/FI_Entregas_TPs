@@ -241,7 +241,6 @@ class Golondrina:
     if self.energia >= 150 and self.energia <= 300:
         return ("esta en equilibrio")
 
-
 #Ejercicio 3
 
 class Ornitologo:
