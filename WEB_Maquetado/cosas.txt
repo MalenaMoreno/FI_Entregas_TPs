@@ -1,0 +1,103 @@
+HTML es lo que sería la estructura, CSS maquilla la estructura (negrita, etc), y JS dinamiza
+
+URL es donde encuentro los recursos en el servidor
+
+Las URI son simplemente un formato estandarizado de cadenas, que por sí mismo no significa nada. Por ejemplo cerebro://recuerdos:3403/recientes#hoy?tema=http
+
+PAGINA WEB -> HTML, QUE ORGANIZA LA INFORMACION, y organiza la metadata de mi PAGINA
+SITIO WEB -> VARIOS HTMLS
+APP -> TENGO UN SERVIDOR
+
+pedido(request)-> consultar al servidor si tienen el servicio que estas buscando
+cliente-> pedido HTTP-> servidor
+
+get -> VERBO que sirve para pedir un recurso
+
+200 es que esta bien, y 400 es que esta mal
+
+json es el formato el cual devuelve la informacion el servidor al cliente
+
+UNA APLICACION REST ES UNA APLICACION EN LA CUAL SE CORRELACIONAN LAS URLS CON LOS VERBOS HTTP
+
+HTTP tiene verbos que se relacionan
+
+X-Powered-By: QUIEN: nos dice que el software es el que se está ejecutando en el servidor. No siempre es muy confiable
+Content-Length: TAMAÑO: nos dice el tamaño de la respuesta
+Date: FECHA: nos dice la fecha en que se terminará la respuesta
+Content-Type: TIPO: nos dice el tipo de contenido que estamos recibiendo, el cual podría ser, por ejemplo:
+sonido, como audio/wavoaudio/ogg
+vídeo, comovideo/ogg
+una imagen, como image/jpegoimage/gif
+en XMLapplication/xml
+un archivo csstext/css
+
+OPTIONS: consultar metadatos o configuraciones de HTTP
+GET: consultar un contenido sin efecto
+POST: crear un contenido
+PUT: actualización de forma total un contenido
+PATCH: actualización de forma parcial de un contenido
+DELETE: eliminar un contenido
+GET /ventas/: consultar todos (listar)
+DELETE /ventas/: borrar todos
+POST /ventas/: crear uno
+POST /ventas/1crear uno con ID (QMP no lo soporta)
+GET /ventas/1: consultar uno
+PUT /ventas/1: modificar uno
+DELETE /ventas/1: eliminar uno
+
+SIEMPRE QUE HACES UN PEDIDO TE APARECE:
+-STATUS CODE(RESPONSE [200 O 400])
+
+-JSON, QUE ES EL QUE TRAE LA INFORMACION EN SI
+
+-LOS HEADERS QUE TE MUESTRA LA DATA DEL PEDIDO
+-UI ES LA INTERFAZ POR LA CUAL SE LE MUESTRAN LOS DATOS A LOS USUARIOS
+-en la cabecera(head) esta todo lo que no se verbos
+-<p> paragraph en el que se va a poner texto
+
+-PANDAS: CSV(SEPARADO X COMAS), TSV(SEPARADO X TAB),XLS(FORMATO EXCEL)
+
+DF-> DATAFRAME->TABLA BIDIMENSIONAL(COLUMNAS Y FILAS)
+DF->DATAFRAME->SERIES->"LISTA" ES LA COLUMNA O LA FILA
+-pd.dataframe()-> constructor
+-read_CSV("path")
+-groupby toma como parametro el nombre de una columna y se le condensa todas las filas en una sola
+-describe te da un analisis estadistico de la TABLA
+-concatenar df 
+-fillna completa con datos numericos y no categoricos
+-reemplazar datos depende de la columna y si tiene sentido en datos numericos
+-con que valor reemplazo? depende de que tipo de distribucion es:
+-normal, puedo usar mean(), sino mediana o moda
+-si trabajas con numeros tenes que fijarte que sean numeros dtype
+-drop duplicates eliminas filas completamente iguales
+
+-dtype te dice que tipo de dato del dataframe.
+-skiprows ignora el numero de filas. Por defecto es 0
+-nrows es la cantidad de lineas que se leen del archivo. Sirve cuando el archivo es muy grande
+-count devuelve la cantidad de datos no nulos
+-para encontarar la interseccion usamos join="inner" --> result = pd.concat([df1, df2], join = "inner") --> print(result)
+-los data frame se pueden guardar como diccionarios (to_dict()) o como lista (to_list())
+-las series tambien se pueden guardar como lista o diccionario
+-los datos son parametricos cuando el promedio es igual a la mediana
+
+ANALISIS DE CLUSTERING
+-hay que ver como se comportan los datos y si puedo dividirlos y clasificarlos de acuerdo a eso 
+-hay que estudiar los datos pra luego clasificarlos
+-lo que se usa para clasificar los datos son metodos numericos. Se calcula la distancia entre dos datos
+-a los datos hay que normalizar y escalarlos
+-normalizar se refiere a entender que estas ponderando las mismas cosas, que sean comparables entre si
+-escalar es llevar los datos a la misma escala numerica
+-tengo mis datos. Me hago preguntas que quiero responder. Hago una limpieza de los datos y hago un escalado y normalizacion 
+-caundo la distribucion es normal se pueden reemplazar los NANS por la media
+-es normal exacta cuando la media es igual a la mediana
+
+INTELIGENCIA ARTIFICIAL/APRENDIZAJE AUTOMATIZADO
+-basado en la busqueda de patrones en un conjunto de datos
+-limpieza de datos(humano), balance de datos(humano), algoritmo(humano y computadora), conclusiones(humano)
+
+KMEANS
+-kmeans me agrupa los datos
+-define un nodo al azar que seria la media, y calcula la distancia del resto de los puntos con ese nodo, y los agrupa. Los que tienen menos distancia los pone juntos
+-toma un dataset y un numero de grups estimado. toma centroides al azar. despues calcula distancia  a los centroides. Recalcula los centroides y reagrupa, y recalcula las distancias
+-label_ es la etiqueta que le puso
+

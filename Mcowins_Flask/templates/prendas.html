@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<p>Estos son nuestros productos</p>
+<ul>
+    {% for id, prenda in prendas %}
+        <li>
+            <a href="{{ url_for('get_prenda', id=id) }}">{{ prendas.Tipo }}</a>100</a>
+        </li>
+    {% endfor %}
+</ul>
